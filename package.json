@@ -20,6 +20,6 @@
         {
             "type" : "MIT",
             "url" : "http://github.com/joybro/node-dogstatsd/raw/master/LICENSE"
-        }   
+        }
     ]
 }
