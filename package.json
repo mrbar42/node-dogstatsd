@@ -1,24 +1,31 @@
 {
-    "name" : "node-dogstatsd",
-    "description" : "node client for extended StatsD server of Datadog",
-    "version" : "0.0.6",
-    "author" : "Young Han Lee",
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/joybro/node-dogstatsd.git"
-    },
-    "bugs" : {
-        "url" : "https://github.com/joybro/node-dogstatsd/issues"
-    },
-    "directories" : {
-        "lib" : "./lib/"
-    },
-    "main" : "./lib/statsd",
-    "engines" : { "node" : ">=0.1.97" },
-    "licenses" : [
-        {
-            "type" : "MIT",
-            "url" : "http://github.com/joybro/node-dogstatsd/raw/master/LICENSE"
-        }
-    ]
+  "name": "node-dogstatsd",
+  "description": "node client for extended StatsD server of Datadog",
+  "version": "0.0.6",
+  "author": "Young Han Lee",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joybro/node-dogstatsd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joybro/node-dogstatsd/issues"
+  },
+  "directories": {
+    "lib": "./lib/"
+  },
+  "main": "./lib/statsd",
+  "engines": {
+    "node": ">=0.1.97"
+  },
+  "scripts": {"test": "mocha"},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/joybro/node-dogstatsd/raw/master/LICENSE"
+    }
+  ],
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1"
+  }
 }
