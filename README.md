@@ -31,9 +31,9 @@ This library supports raising events to a dogstatsd server as well. The conventi
 
 Options is an object that contains one of three optional parameters that can be set on the event:
 
-eventType - There is an enum called eventType that wraps the four options (error, info, success, warning). Default is info.
-priority - String that sets priority. There is an enum called priority that wraps the two options (low, normal). Default is normal.
-aggKey - String that allows the event viewer to aggregate similar requests.
+* *eventType* - There is an enum called eventType that wraps the four options (error, info, success, warning). Default is info.
+* *priority* - String that sets priority. There is an enum called priority that wraps the two options (low, normal). Default is normal.
+* *aggKey* - String that allows the event viewer to aggregate similar requests.
 
 #### Example Call
 
