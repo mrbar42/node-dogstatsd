@@ -23,6 +23,25 @@ The name of the package is changed because this isn't really statsd client and s
     > c.histogram('node_test.some_service.data', 100) // works only with datadog' StatsD
     > c.increment('node_test.int', 1, ['tag:one']) // works only with datadog' StatsD
 
+### Event Support
+
+This library supports raising events to a dogstatsd server as well. The convention is:
+
+    client.event(title, description, options, tags)
+
+Options is an object that contains one of three optional parameters that can be set on the event:
+
+eventType - There is an enum called eventType that wraps the four options (error, info, success, warning). Default is info.
+priority - String that sets priority. There is an enum called priority that wraps the two options (low, normal). Default is normal.
+aggKey - String that allows the event viewer to aggregate similar requests.
+
+#### Example Call
+
+    var dogstatd = require('../lib/statsd.js');
+    var client = new dogstatd.StatsD('localhost',8125);
+
+    client.event('Error Detected','error description',{eventType: dogstatd.eventType.ERROR, priority: dogstatd.priority.NORMAL, aggKey: 'Error'},['nodeApp']);
+
 ## License
 
 node-statsd is licensed under the MIT license.
