@@ -10,6 +10,9 @@
   "bugs": {
     "url": "https://github.com/joybro/node-dogstatsd/issues"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive --require should"
+  },
   "directories": {
     "lib": "./lib/"
   },
@@ -26,6 +29,6 @@
   ],
   "devDependencies": {
     "mocha": "^2.2.5",
-    "sinon": "^1.14.1"
+    "should": "^6.0.3"
   }
 }
