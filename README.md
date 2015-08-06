@@ -2,11 +2,11 @@
 
 A node.js client for extended StatsD server of [Datadog](http://www.datadoghq.com).
 
-Datadog added new some features(histogram and tags) to their own StatsD implementation.
+Datadog added some new features (histogram, tags, and event) to their own StatsD implementation.
 This client is an extension of general StatsD client to work with that server.
 
 Most parts of codes came from [Steve Ivy](https://github.com/sivy)'s [node-statsd](https://github.com/sivy/node-statsd).
-I just added few lines to support datadog's histogram and tags features.
+I just added few lines to support datadog's extensions.  Some of these changes (histogram and tags) have now made it back into node-statsd.
 
 The name of the package is changed because this isn't really statsd client and should be able to be used with original statsd client.
 
