@@ -1,15 +1,12 @@
 /**
- * Created by James on 28/05/2015.
+ * Tests basic increment functionality
  */
-
 var assert = require('assert');
 var sinon = require('sinon');
 var dogstatsd = require('../lib/statsd.js');
 
 describe('dogstatsd Metrics Functionality: ', function() {
-
     describe('Tags Functionality', function() {
-
         var client, sendSpy;
 
         before(function() {
@@ -28,7 +25,6 @@ describe('dogstatsd Metrics Functionality: ', function() {
         });
 
         it('should include tags separated by commas after a |#', function() {
-
             client.increment('node_test.int',1,['tag1:test','tag2:test2','tag3']);
             var packet = sendSpy.args[0][0];
             assert(/\|#tag1:test,tag2:test2,tag3/.test(packet));
@@ -41,6 +37,6 @@ describe('dogstatsd Metrics Functionality: ', function() {
             console.log(packet.toString());
             assert.equal(packet.toString(),'node_test.int:1|c');
 
-        })
-    })
-})
+        });
+    });
+});

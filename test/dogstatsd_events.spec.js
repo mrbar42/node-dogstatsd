@@ -1,17 +1,13 @@
 /**
- * Created by James McNally on 27/05/2015.
+ * Tests basic events functionality
  */
 
 var assert = require('assert');
 var sinon = require('sinon');
 var dogstatsd = require('../lib/statsd.js');
 
-
 describe('Dogstatsd Events Functionality', function() {
-
-
     describe('Dogstatd Event Calls', function() {
-
         var client, sendSpy;
 
         before(function() {
@@ -36,49 +32,41 @@ describe('Dogstatsd Events Functionality', function() {
         });
 
         it('should include a priority if included in the options', function() {
-
             client.event('TestTitle', 'TestText', {priority: dogstatsd.priority.NORMAL});
             var spyBuffer = sendSpy.args[0][0];
             assert(/\|p:normal/.test(spyBuffer));
         });
 
         it('should include an event type if included in the options', function() {
-
             client.event('TestTitle', 'TestText', {eventType: dogstatsd.eventType.SUCCESS});
             var spyBuffer = sendSpy.args[0][0];
             assert(/\|t:success/.test(spyBuffer));
         });
 
         it('should include an aggregation key if included in the options', function() {
-
             client.event('TestTitle', 'TestText', {aggKey: 'testkey'});
             var spyBuffer = sendSpy.args[0][0];
             assert(/\|k:testkey/.test(spyBuffer));
         });
 
         it('should include tags seperated by commas after a |#', function() {
-
             client.event('TestTitle', 'TestText', {aggKey: 'testkey'},['tag1:test','tag2:test2','tag3']);
             var packet = sendSpy.args[0][0];
             assert(/\|#tag1:test,tag2:test2,tag3/.test(packet));
-
         });
     });
 
     describe('Event Enums', function() {
-
         it('should translate enumerated types to correct strings for event priorities', function() {
             assert.equal(dogstatsd.priority.NORMAL, 'normal');
             assert.equal(dogstatsd.priority.LOW, 'low');
         });
 
         it('should translate enumerated types to correct strings for event types', function() {
-
             assert.equal(dogstatsd.eventType.ERROR,'error');
             assert.equal(dogstatsd.eventType.WARNING,'warning');
             assert.equal(dogstatsd.eventType.INFO,'info');
             assert.equal(dogstatsd.eventType.SUCCESS,'success');
-
         });
     });
 });
