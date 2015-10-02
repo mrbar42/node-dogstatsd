@@ -1,14 +1,14 @@
 {
-  "name": "node-dogstatsd",
+  "name": "abdogstatsd",
   "description": "node client for extended StatsD server of Datadog",
   "version": "0.0.6",
-  "author": "Young Han Lee",
+  "author": "Young Han Lee, Aaron Brady",
   "repository": {
     "type": "git",
-    "url": "git://github.com/joybro/node-dogstatsd.git"
+    "url": "git://github.com/abrady0/node-dogstatsd.git"
   },
   "bugs": {
-    "url": "https://github.com/joybro/node-dogstatsd/issues"
+    "url": "https://github.com/abrady0/node-dogstatsd/issues"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --recursive --require should"
