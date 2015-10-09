@@ -210,5 +210,9 @@ describe('StatsD', function() {
       serverShouldReceive('_e{11,10}:event_title|event_body|#tag0:tag0Value', done);
       client.event('event_title', 'event_body',{tag0:'tag0Value'});
     });
+    it('should send the event value with tags and no body', function(done) {
+      serverShouldReceive('_e{11,0}:event_title||#tag0:tag0Value', done);
+      client.event('event_title', {tag0:'tag0Value'});
+    });
   });
 });

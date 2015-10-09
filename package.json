@@ -1,7 +1,7 @@
 {
   "name": "abdogstatsd",
   "description": "node client for extended StatsD server of Datadog",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Young Han Lee, Aaron Brady",
   "repository": {
     "type": "git",
