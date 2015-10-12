@@ -1,5 +1,7 @@
 # node-dogstatsd
 
+Aaron Brady: A fork of node-dogstatsd to add events. should eventually merge back with that project, just need the module now.
+
 A node.js client for extended StatsD server of [Datadog](http://www.datadoghq.com).
 
 Datadog added new some features(histogram and tags) to their own StatsD implementation.

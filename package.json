@@ -1,17 +1,18 @@
 {
-  "name": "node-dogstatsd",
+  "name": "abdogstatsd",
   "description": "node client for extended StatsD server of Datadog",
-  "version": "0.0.6",
-  "author": "Young Han Lee",
+  "version": "0.0.10",
+  "author": "Young Han Lee, Aaron Brady",
   "repository": {
     "type": "git",
-    "url": "git://github.com/joybro/node-dogstatsd.git"
+    "url": "git://github.com/abrady0/node-dogstatsd.git"
   },
   "bugs": {
-    "url": "https://github.com/joybro/node-dogstatsd/issues"
+    "url": "https://github.com/abrady0/node-dogstatsd/issues"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --recursive --require should"
+    "test": "./node_modules/.bin/mocha --recursive --require should",
+    "lint": "jshint && flow/flow"
   },
   "directories": {
     "lib": "./lib/"
@@ -29,5 +30,32 @@
   "devDependencies": {
     "mocha": "^2.2.5",
     "should": "^6.0.3"
+  },
+  "jshintConfig": {
+    "browser": false,
+    "curly": false,
+    "debug": true,
+    "indent": 2,
+    "esnext": false,
+    "expr": true,
+    "globalstrict": false,
+    "latedef": "nofunc",
+    "node": true,
+    "nonbsp": true,
+    "shadow": false,
+    "undef": true,
+    "unused": "vars",
+    "predef": [
+      "process",
+      "Buffer",
+      "webkit",
+      "console",
+      "require",
+      "exports",
+      "module",
+      "CryptoJS",
+      "IDBKeyRange",
+      "appRequire"
+    ]
   }
 }
