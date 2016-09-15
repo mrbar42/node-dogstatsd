@@ -15,7 +15,12 @@ describe('StatsD', function() {
     beforeEach(function(done) {
         fakeStatsDServerSocket = dgram.createSocket('udp4');
         fakeStatsDServerSocket.bind(function() {
-            client = new StatsD('localhost', fakeStatsDServerSocket.address().port);
+            client = new StatsD({
+                host: 'localhost',
+                port: fakeStatsDServerSocket
+                    .address()
+                    .port
+            });
             done();
         });
     });
@@ -24,18 +29,22 @@ describe('StatsD', function() {
         fakeStatsDServerSocket.close();
     });
 
-    // Wraps up listening for the next message on our fake server and
-    // verifying that it's contents match those expected. Calls back
-    // once this check has been performed.
+    // Wraps up listening for the next message on our fake server and verifying
+    // that it's contents match those expected. Calls back once this check has been
+    // performed.
     var serverShouldReceive = function(expected, cb) {
-        fakeStatsDServerSocket.once('message', function(msg) {
-            try {
-                msg.toString('utf8').should.eql(expected);
-            } catch (e) {
-                return cb(e);
-            }
-            cb();
-        });
+        fakeStatsDServerSocket
+            .once('message', function(msg) {
+                try {
+                    msg
+                        .toString('utf8')
+                        .should
+                        .eql(expected);
+                } catch (e) {
+                    return cb(e);
+                }
+                cb();
+            });
     };
 
     var serverShouldReceiveMultiple = function(expected, n, cb) {
@@ -43,7 +52,10 @@ describe('StatsD', function() {
         fakeStatsDServerSocket.on('message', function(msg) {
             remaining--;
             try {
-                msg.toString('utf8').should.eql(expected);
+                msg
+                    .toString('utf8')
+                    .should
+                    .eql(expected);
             } catch (e) {
                 return cb(e);
             }
