@@ -1,7 +1,7 @@
 {
   "name": "node-dogstatsd",
   "description": "node client for extended StatsD server of Datadog",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Young Han Lee",
   "repository": {
     "type": "git",
